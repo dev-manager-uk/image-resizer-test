@@ -1,0 +1,47 @@
+{
+  "license": "MIT",
+  "version": "1.3.3",
+  "main": "electron.js",
+  "productName": "Image Resizer",
+  "name": "electron-image-resizer",
+  "description": "An image resizer app.",
+  "homepage": "https://github.com/ozgrozer/electron-image-resizer",
+  "author": "Ozgur Ozer <ozgr@live.com> (https://github.com/ozgrozer/)",
+  "dependencies": {
+    "electron-store-data": "^1.0.0",
+    "electron-updater": "^4.2.0",
+    "sharp": "^0.26.0"
+  },
+  "devDependencies": {
+    "electron": "^7.1.7",
+    "electron-builder": "^21.2.0"
+  },
+  "scripts": {
+    "start": "electron .",
+    "build": "build -m",
+    "build_windows": "build -w",
+    "build_linux": "build -l",
+    "build-and-publish": "build -m -p always",
+    "build-and-publish-win": "build -w -p always",
+    "postbuild-and-publish": "rm -rf dist",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "build": {
+    "appId": "com.ozgrozer.electron-image-resizer",
+    "files": [
+      "src",
+      "electron.js",
+      "node_modules"
+    ],
+    "mac": {
+      "darkModeSupport": true,
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "category": "productivity"
+    },
+    "win": {},
+    "linux": {}
+  }
+}
